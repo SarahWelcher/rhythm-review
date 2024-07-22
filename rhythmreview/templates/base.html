@@ -2,46 +2,68 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Review the latest rock/alt/pop punk-tracks!">
-    <meta name="keywords" content="music, poppunk, alternative, rock, track, review, musicreview">
-    <meta name="author" content="Sarah Welcher">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Review the latest rock/alt/pop punk-tracks!">
+<meta name="keywords" content="music, poppunk, alternative, rock, track, review, musicreview">
+<meta name="author" content="Sarah Welcher">
 
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css" integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg==" 
-        crossorigin="anonymous" referrerpolicy="no-referrer" />
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
-        type="text/css">
-    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Franklin:ital,wght@0,100..900;1,100..900&family=Rubik+Distressed&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+crossorigin="anonymous" referrerpolicy="no-referrer" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css"
+type="text/css">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}" type="text/css">
 
-    <title>Rhythm Review</title>
+<title>Rhythm Review</title>
 </head>
 
 <body>
 
-    <header>
-        <!-- top navbar -->
-        <nav class="deep-orange">
-            <div class="nav-wrapper">
-                <a href="{{ url_for('home') }}" class="brand-logo">Rhythm Reviews</a>
-                <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
-                <ul class="right hide-on-med-and-down">
-                    <li><a href="{{ url_for('home') }}">Home</a></li>
-                    <li><a href="{{ url_for('login') }}">Log In</a></li>
-                    <li><a href="{{ url_for('register') }}">Register</a></li>
-                </ul>
-            </div>
-        </nav>
-
-        <!--  mobile sidenav -->
-        <ul class="sidenav" id="mobile-demo">
+<header>
+<!-- top navbar -->
+<nav class="deep-orange">
+    <div class="nav-wrapper">
+        <a href="{{ url_for('home') }}" id="logo" class="brand-logo">Rhythm Reviews</a>
+        <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="fas fa-bars"></i></a>
+        <ul class="right hide-on-med-and-down" id="nav-links">
             <li><a href="{{ url_for('home') }}">Home</a></li>
             <li><a href="{{ url_for('login') }}">Log In</a></li>
             <li><a href="{{ url_for('register') }}">Register</a></li>
         </ul>
-    </header>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
-        <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+    </div>
+</nav>
+
+<!--  mobile sidenav -->
+<ul class="sidenav" id="mobile-demo">
+    <li><a href="{{ url_for('home') }}">Home</a></li>
+    <li><a href="{{ url_for('login') }}">Log In</a></li>
+    <li><a href="{{ url_for('register') }}">Register</a></li>
+</ul>
+</header>
+
+<main class="container">
+{% block content %}
+{% endblock %}
+</main>
+
+<footer class="page-footer deep-orange">
+    <div class="footer-copyright">
+      <div class="container">
+        <a class="grey-text text-lighten-4 right" href="https://www.spotify.com"><i class="fa-brands fa-spotify"></i></a>
+        <a class="grey-text text-lighten-4 right" href="https://music.apple.com/us/browse"><i class="fa-brands fa-apple"></i></a>
+        <a class="grey-text text-lighten-4 right" href="https://www.youtube.com/"><i class="fa-brands fa-youtube"></i></a>
+      <a class="grey-text text-lighten-4 right" href="https://www.facebook.com"><i class="fa-brands fa-facebook-f"></i></a>
+      <a class="grey-text text-lighten-4 right" href="https://www.x.com"><i class="fa-brands fa-x-twitter"></i></a>
+      </div>
+    </div>
+  </footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+<script src="{{ url_for('static', filename='js/script.js') }}"></script>
 </body>
 
 </html>
