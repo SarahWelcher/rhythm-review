@@ -41,3 +41,19 @@ class Reviews(db.Model):
     def __repr__(self):
         # __repr__ to represent itself in the form of a string
         return self
+
+
+class Comments(db.Model):
+    """
+    Schema for comments model
+    """
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String, nullable=False)
+    description = db.Column(db.String, nullable=False)
+    rating = db.Column(db.String, nullable=False)
+    comment = db.relationship(
+        "review_id", backref="user", cascade="all, delete", lazy=True)
+
+    def __repr__(self):
+        # __repr__ to represent itself in the form of a string
+        return self
