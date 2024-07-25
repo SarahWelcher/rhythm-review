@@ -20,12 +20,12 @@ class User(db.Model):
         return f"#{self.id} - Username:{self.username} | Reviewed {self.song_name}"
 
 
-class Reviews(db.Model):
+class Review(db.Model):
     """
-    Schema for reviews model
+    Schema for review model
     """
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey(
+    user_id = db.Column(db.String, db.ForeignKey(
         "user.id", ondelete="CASCADE"), nullable=False)
     song_name = db.Column(db.String, nullable=False)
     artist = db.Column(db.String, nullable=False)

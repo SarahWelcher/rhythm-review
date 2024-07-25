@@ -1,0 +1,65 @@
+{% extends "base.html" %}
+{% block content %}
+
+<!-- category name -->
+<div class="row">
+    <div class="input-field col s12">
+        <i class="fas fa-music prefix"></i>
+        <input id="song_name" name="song_name" type="text" class="validate" required>
+        <label for="song_name">Track Name</label>
+    </div>
+    <div class="row">
+        <div class="input-field col s12">
+            <i class="fas fa-microphone-lines prefix"></i>
+            <input id="artist" name="artist" type="text" class="validate" required>
+            <label for="artist">Artist</label>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <i class="fas fa-calendar-day prefix"></i>
+                <input id="release_year" name="release_year" type="text" class="validate" required>
+                <label for="release_year">Release Year</label>
+            </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    <i class="fas fa-record-vinyl prefix"></i>
+                    <input id="album" name="album" type="text" class="validate" required>
+                    <label for="album">Album</label>
+                </div>
+                <div class="row">
+                    <div class="input-field col s12">
+                        <i class="fas fa-sliders prefix"></i>
+                        <input id="producer" name="producer" type="text" class="validate">
+                        <label for="producer">Producer</label>
+                    </div>
+                    <div class="row">
+                        <div class="input-field col s12">
+                            <i class="fas fa-building prefix"></i>
+                            <input id="studio" name="studio" type="text" class="validate">
+                            <label for="studio">Studio</label>
+                        </div>
+                        <div class="row">
+                            <div class="input-field col s12">
+                                <i class="fas fa-headphones prefix"></i>
+                                <input id="monthly_listeners" name="monthly_listeners" type="text"
+                                    class="validate">
+                                <label for="monthly_listeners">Monthly Listeners</label>
+                            </div>
+                            <div class="row">
+                                <div class="input-field col s12">
+                                    <i class="fas fa-film prefix"></i>
+                                    <input id="video" name="video" type="text" class="validate">
+                                    <label for="video">Video</label>
+                                </div>
+                            </div>
+                            <!-- submit button -->
+                            <div class="row">
+                                <div class="col s12 center-align">
+                                    <button type="submit" class="btn-large deep-orange black-text">
+                                        Add Review <i class="fas fa-plus-square right black-text"></i>
+                                    </button>
+                                </div>
+                            </div>
+</form>
+
+{% endblock %}

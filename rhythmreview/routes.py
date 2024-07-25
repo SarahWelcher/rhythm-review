@@ -1,13 +1,24 @@
-# referenced https://github.com/andrewcannan/elite-pt-pro to help write log in / register functions (sent to me by mentor to help understand what is required for project)
+# referenced https://github.com/andrewcannan/elite-pt-pro to help write log in / register functions (sent to me by mentor to help understand what is required for project login/register function)
 
 from flask import render_template, request, redirect, url_for, session, flash
 from rhythmreview import app, db
-from rhythmreview.models import User, Reviews
+from rhythmreview.models import User, Review
 from werkzeug.security import generate_password_hash, check_password_hash
+
 
 @app.route("/")
 def home():
-    return render_template("base.html")
+    return render_template("review.html")
+
+
+@app.route("/add_review", methods=["GET", "POST"])
+def add_review():
+    if request.method == "POST":
+        review = Review(review_name=request.form.get("review_name"))
+        db.session.add(review)
+        db.session.commit()
+        return redirect(url_for("review"))
+    return render_template("add_review.html")
 
 
 @app.route("/register", methods=["GET", "POST"])
@@ -39,6 +50,7 @@ def register():
         flash("Registration was successful")
         return redirect(url_for("home"))
     return render_template("register.html")
+
 
 @app.route("/login", methods=["GET", "POST"])
 def login():
